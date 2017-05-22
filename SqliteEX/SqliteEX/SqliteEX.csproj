@@ -88,6 +88,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\Helper.cs" />
+    <Compile Include="Common\Log.cs" />
+    <Compile Include="Common\XmlHelper.cs" />
     <Compile Include="DataBase\DalBase.cs" />
     <Compile Include="DataBase\SqliteHelper.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
