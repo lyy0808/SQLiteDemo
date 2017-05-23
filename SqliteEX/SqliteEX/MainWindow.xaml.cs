@@ -23,6 +23,21 @@ namespace SqliteEX
         public MainWindow()
         {
             InitializeComponent();
+            this.btn.Click += Btn_Click;
+        }
+
+
+        private void Btn_Click(object sender, RoutedEventArgs e)
+        {
+            TipMessage();
+        }
+
+     
+
+
+        private static void TipMessage()
+        {
+            MessageBox.Show("test");
         }
     }
 }
