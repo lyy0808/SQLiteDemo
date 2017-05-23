@@ -90,6 +90,10 @@
     </ApplicationDefinition>
     <Compile Include="Common\Helper.cs" />
     <Compile Include="Common\Log.cs" />
+    <Compile Include="Common\SQLiteColumn.cs" />
+    <Compile Include="Common\SQLiteColumnList.cs" />
+    <Compile Include="Common\SQLiteHelper.cs" />
+    <Compile Include="Common\SQLiteTable.cs" />
     <Compile Include="Common\XmlHelper.cs" />
     <Compile Include="DataBase\DalBase.cs" />
     <Compile Include="DataBase\SqliteHelper.cs" />

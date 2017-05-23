@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="btn" Content="Button" HorizontalAlignment="Left" Margin="59,55,0,0" VerticalAlignment="Top" Width="75" />
+        <Button x:Name="btn" Content="Button" HorizontalAlignment="Left" Margin="59,55,0,0" VerticalAlignment="Top" Width="75"
+                Command="{Binding MyClick}" CommandParameter="MyDatabase.sqlite" />
 
     </Grid>
 </Window>

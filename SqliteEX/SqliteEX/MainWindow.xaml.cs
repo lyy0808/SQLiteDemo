@@ -23,7 +23,7 @@ namespace SqliteEX
         public MainWindow()
         {
             InitializeComponent();
-            this.btn.Click += Btn_Click;
+           // this.btn.Click += Btn_Click;
         }
 
 

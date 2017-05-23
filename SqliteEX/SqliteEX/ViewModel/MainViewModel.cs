@@ -1,4 +1,6 @@
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.CommandWpf;
+using System.Data.SQLite;
 
 namespace SqliteEX.ViewModel
 {
@@ -21,14 +23,16 @@ namespace SqliteEX.ViewModel
         /// </summary>
         public MainViewModel()
         {
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
+            MyClick = new RelayCommand<string>(CreateDB);           
+        }
+        public RelayCommand<string> MyClick { get; set; }
+        /// <summary>
+        /// 创建一个空的数据库
+        /// </summary>
+        /// <param name="str"></param>
+        private void CreateDB(string str)
+        {
+            SQLiteConnection.CreateFile(str);
         }
     }
 }
