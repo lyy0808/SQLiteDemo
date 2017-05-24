@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:SqliteEX" DataContext="{Binding Source={StaticResource Locator},Path=Main}"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <local:ConVertFather x:Key="ConvertFather"/>
+    </Window.Resources>
     <Grid>
         <Button x:Name="btn" Content="Button" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Width="75"
                 Command="{Binding MyClick}" CommandParameter="MyDatabase.sqlite" />
@@ -13,6 +16,13 @@
         <Button Command="{Binding CreateTable}" Content="CreateTableUseHelper" Margin="115,10,290,266"/>
         <Button Command="{Binding InsertTable}" Content="InsertTableUseHelper" Margin="252,10,153,266"/>
         <Button Command="{Binding SelectTable}" Content="SelectTableUseHelper" Margin="384,10,21,266"/>
+        <Button Command="{Binding UpdataTable}" Content="UpdataTableUseHelper" Margin="375,70,30,206"  />
+        <TextBox x:Name="txt" Height="30" Width="300" Text="40" Margin="32,93,185,196"/>
+        <Label Height="30" Width="300"  Margin="32,58,185,231"  >
+            <MultiBinding Converter="{StaticResource ConvertFather}" ConverterParameter="40" UpdateSourceTrigger="PropertyChanged">
+                <Binding Path="Text" ElementName="txt"/>
+            </MultiBinding>
+        </Label>
 
     </Grid>
 </Window>

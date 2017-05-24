@@ -95,6 +95,7 @@
     <Compile Include="Common\SQLiteHelper.cs" />
     <Compile Include="Common\SQLiteTable.cs" />
     <Compile Include="Common\XmlHelper.cs" />
+    <Compile Include="ConVertFather.cs" />
     <Compile Include="DataBase\DalBase.cs" />
     <Compile Include="DataBase\SqliteHelper.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />

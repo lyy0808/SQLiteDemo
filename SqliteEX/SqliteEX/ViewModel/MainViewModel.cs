@@ -33,6 +33,7 @@ namespace SqliteEX.ViewModel
             CreateTable = new RelayCommand(UseSqliteHelperCreateTable);
             InsertTable = new RelayCommand(UseSqliteHelperInsertTable);
             SelectTable = new RelayCommand(UseSqliteHelperSelectTable);
+            UpdataTable = new RelayCommand(UseSqliteHelperUpdataTable);
         }
         public RelayCommand<string> MyClick { get; set; }
         public RelayCommand CreateTable { get; set; }
@@ -40,6 +41,29 @@ namespace SqliteEX.ViewModel
         public RelayCommand InsertTable { get; set; }
         public RelayCommand SelectTable { get; set; }
 
+        public RelayCommand UpdataTable { get; set; }
+
+        private void UseSqliteHelperUpdataTable()
+        {
+            using (SQLiteConnection conn = new SQLiteConnection("Data Source=MyDatabase.sqlite;Version=3;"))
+            {
+                using (SQLiteCommand cmd = new SQLiteCommand())
+                {
+                    conn.Open();
+                    cmd.Connection = conn;
+                    SQLiteHelper sh = new SQLiteHelper(cmd);
+                    Dictionary<string, object> dicData = new Dictionary<string, object>();
+                    dicData["ID"] = "1002";
+                    dicData["TimeAT"] = DateTime.Now.AddDays(1);
+
+                    byte[] cha = BitConverter.GetBytes(257414.2);
+                    dicData["CHA"] = cha;
+                    sh.Update("MyData", dicData, "ID", 1001);
+                    conn.Close();
+                }
+            }
+
+        }
         private void UseSqliteHelperSelectTable()
         {
             using (SQLiteConnection conn = new SQLiteConnection("Data Source=MyDatabase.sqlite;Version=3;"))
@@ -48,18 +72,13 @@ namespace SqliteEX.ViewModel
                 {
                     conn.Open();
                     cmd.Connection = conn;
-
                     SQLiteHelper sh = new SQLiteHelper(cmd);
                     string strSelct = "Select * from MyData";
                     DataTable dt = sh.Select(strSelct);
                     foreach (DataRow row in dt.Rows)
                     {
-                       
-                            Console.WriteLine("{0},{1},{2}",row["ID"],row["TimeAt"],BitConverter.ToDouble((byte[])row["CHA"],0));
-                       
+                        Console.WriteLine("{0},{1},{2}",row["ID"],row["TimeAt"],BitConverter.ToDouble((byte[])row["CHA"],0));                       
                     }
-
-
                     conn.Close();
                 }
             }
