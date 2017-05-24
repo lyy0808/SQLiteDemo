@@ -7,8 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="btn" Content="Button" HorizontalAlignment="Left" Margin="59,55,0,0" VerticalAlignment="Top" Width="75"
+        <Button x:Name="btn" Content="Button" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Width="75"
                 Command="{Binding MyClick}" CommandParameter="MyDatabase.sqlite" />
+        <DataGrid HorizontalAlignment="Left" Height="150" Margin="20,119,0,0" VerticalAlignment="Top" Width="274" DataContext="{Binding dt}"/>
+        <Button Command="{Binding CreateTable}" Content="CreateTableUseHelper" Margin="115,10,290,266"/>
+        <Button Command="{Binding InsertTable}" Content="InsertTableUseHelper" Margin="252,10,153,266"/>
+        <Button Command="{Binding SelectTable}" Content="SelectTableUseHelper" Margin="384,10,21,266"/>
 
     </Grid>
 </Window>
